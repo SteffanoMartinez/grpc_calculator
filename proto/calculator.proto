@@ -1,0 +1,62 @@
+// Calculator Protocol File
+// Steffano Martinez, September 2024
+
+syntax =  "proto3";
+
+package calculator;
+
+message AdditionRequest {
+    int32 operand1 = 1;
+    int32 operand2 = 2;
+}
+
+message AdditionResponse {
+    int32 result = 1;
+}
+
+message SubstractionRequest {
+    int32 operand1 = 1;
+    int32 operand2 = 2;
+}
+
+message SubstractionResponse {
+    int32 result = 1;
+}
+
+message MultiplicationRequest {
+    int32 operand1 = 1;
+    int32 operand2 = 2;
+}
+
+message MultiplicationResponse {
+    int32 result = 1;
+}
+
+message DivisionRequest {
+    float divisor = 1;
+    float dividend = 2;
+}
+
+message DivisionResponse {
+    float result = 1;
+    int32 remainder = 2;
+}
+
+message ExponentialRequest {
+    int32 base = 1;
+    int32 power = 2;
+}
+
+message ExponentialResponse {
+    int32 result = 1;
+}
+
+service Calculator {
+    rpc addition(AdditionRequest) returns (AdditionResponse); 
+    rpc substraction(SubstractionRequest) returns (SubstractionResponse);
+    rpc multiplication(MultiplicationRequest) returns (MultiplicationResponse);
+    rpc division(DivisionRequest) returns (DivisionResponse);
+    rpc exponential(ExponentialRequest) returns (ExponentialResponse);
+}
+
+
